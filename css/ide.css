@@ -18,7 +18,7 @@ body {
 }
 
 .ui.selection.dropdown {
-    width: 300px;
+    width: 205px;
 }
 
 .lm_header .lm_tab {
@@ -39,6 +39,39 @@ body {
     background: #1e1e1e;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     height: 45px;
+}
+
+#navigation-message {
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes slide {
+    0% { transform: translateX(570px); }
+    100% { transform: translateX(-100%); }
+}
+@-webkit-keyframes slide {
+    0% { transform: translateX(570px); }
+    100% { transform: translateX(-100%); }
+}
+
+.navigation-message-text {
+    white-space: nowrap;
+    -moz-animation: slide 60s linear infinite;
+    -webkit-animation: slide 60s linear infinite;
+    animation: slide 60s linear infinite;
+}
+
+.navigation-message-text:hover {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+#navigation-message a {
+    color: #41a5f1;
+    font-weight: bold;
 }
 
 #site-icon {
@@ -67,7 +100,7 @@ body {
     color: #db2828;
 }
 
-#site-footer, #status-line {
+#site-footer, #status-line, #donate-line {
     background-color: #0E6EB8;
     bottom: 0;
     font-family: "Droid Sans Mono", monospace, monospace, "Droid Sans Fallback";
@@ -94,6 +127,13 @@ body {
     color: #a0d2f8;
 }
 
+#donate-line {
+    float: left;
+    left: 0;
+    text-align: left;
+    width: fit-content;
+}
+
 #status-line {
     color: #fff;
     float: right;
@@ -102,8 +142,26 @@ body {
     width: fit-content;
 }
 
-.left-padding {
-    padding-left: 16px !important;
+#editor-status-line {
+    background: transparent;
+    color: #fff;
+    font-family: monospace;
+    height: 19px;
+    padding: 0px 16px;
+    width: inherit;
+}
+
+#editor-status-line input[type=text] {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    outline: none;
+}
+
+#editor-status-line input[type=text]::selection {
+    background-color: #cce2ff;
+    color: #fff;
 }
 
 .blink {
@@ -124,4 +182,12 @@ body {
     height: 5px;
     right: 7.5px;
     top: 7.5px;
+}
+
+.no-left-padding {
+    padding-left: 0 !important;
+}
+
+input[type="text"] {
+    width: 205px !important;
 }
